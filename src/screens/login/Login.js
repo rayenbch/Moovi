@@ -32,7 +32,7 @@ const Login = () => {
   };
   return (
     <View style={styles.container}>
-      <Text style={styles.t1}>Welcome Back !</Text>
+      <Text style={styles.tes1}>Welcome Back !</Text>
       <Text style={styles.t2}>Please sign in to your account</Text>
       <CustomInput
         placeholder="Username"
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#181A20",
     flex: 1,
   },
-  t1: {
+  tes1: {
     color: "white",
     fontSize: 40,
   },
