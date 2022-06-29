@@ -32,8 +32,8 @@ const Login = () => {
   };
   return (
     <View style={styles.container}>
-      <Text style={styles.tes1}>Welcome Back !</Text>
-      <Text style={styles.t2}>Please sign in to your account</Text>
+      <Text style={styles.text1}>Welcome Back !</Text>
+      <Text style={styles.text2}>Please sign in to your account</Text>
       <CustomInput
         placeholder="Username"
         value={username}
@@ -45,20 +45,20 @@ const Login = () => {
         setValue={setPassword}
         secureTextEntry={true}
       />
-      <View style={styles.v1}>
+      <View style={styles.vpassword}>
         <TouchableOpacity>
-          <Text style={styles.tex1} onPress={onForgotPaaswordPressed}>
+          <Text style={styles.password} onPress={onForgotPaaswordPressed}>
             Forgot password?
           </Text>
         </TouchableOpacity>
       </View>
       <ButtonPrimery text="Sign in" onPress={onSignInPressed} />
 
-      <View style={styles.con2}>
+      <View style={styles.container1}>
         <TouchableOpacity>
-          <Text style={styles.t3}>
+          <Text style={styles.text3}>
             Don't have an account ?
-            <Text style={styles.t4} onPress={onSignUpPressed}>
+            <Text style={styles.signUp} onPress={onSignUpPressed}>
               Create one
             </Text>
           </Text>
@@ -75,31 +75,31 @@ const styles = StyleSheet.create({
     backgroundColor: "#181A20",
     flex: 1,
   },
-  tes1: {
+  text1: {
     color: "white",
     fontSize: 40,
   },
-  t2: {
+  text2: {
     color: "white",
   },
-  t3: {
+  text3: {
     color: "white",
     fontSize: 14,
     fontWeight: "bold",
     margin: 10,
   },
-  con2: {
+  container1: {
     alignItems: "center",
   },
-  t4: {
+  signUp: {
     color: "#4D5EE3",
   },
-  tex1: {
+  password: {
     color: "#4F5055",
     alignItems: "center",
     margin: 20,
   },
-  v1: {
+  vpassword: {
     width: "100%",
     alignItems: "flex-end",
   },
