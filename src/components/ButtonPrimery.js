@@ -13,7 +13,7 @@ const ButtonPrimery = ({ onPress, text }) => {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    backgroundColor: defaultStyles.colors.red,
+    backgroundColor: defaultStyles.colors.blue,
     padding: 15,
     marginVertical: 5,
 

@@ -1,1 +1,3 @@
-export const fonts = {};
+export const fonts = {
+  fontWeight: "bold",
+};

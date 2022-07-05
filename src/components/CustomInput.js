@@ -6,6 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
+import defaultStyles from "../../config/styles";
 
 const CustomInput = ({ value, setValue, placeholder, secureTextEntry }) => {
   return (
@@ -26,15 +27,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#262a34",
     width: "100%",
 
-    borderColor: "#393A40",
+    borderColor: defaultStyles.colors.borderColor,
     borderWidth: 1,
     borderRadius: 20,
-    placeholderTextColor: "white",
+    placeholderTextColor: defaultStyles.colors.white,
     paddingHorizontal: 10,
     marginVertical: 10,
   },
   input: {
-    color: "white",
+    color: defaultStyles.colors.white,
   },
 });
 export default CustomInput;

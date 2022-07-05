@@ -8,22 +8,10 @@ import {
 } from "react-native";
 //import Icon from "react-native-vector-icons/FontAwesome5";
 
-const Login = ({ title, addItem }) => {
-  const [text, setText] = useState("");
-  const onchange = (textValue) => setText(textValue);
+const Home = ({ title, addItem }) => {
   return (
     <View>
-      <TextInput
-        placeholder="add Item .."
-        style={styles.input}
-        onChangeText={onchange}
-      />
-      <TouchableOpacity style={styles.btn} onPress={() => addItem(text)}>
-        <Text style={styles.btnText}>
-          <Icon name="plus" size={20} />
-          Add Item
-        </Text>
-      </TouchableOpacity>
+      <Text>Hi </Text>
     </View>
   );
 };
@@ -46,4 +34,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login.js;
+export default Home;

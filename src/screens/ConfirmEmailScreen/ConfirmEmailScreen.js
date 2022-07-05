@@ -11,13 +11,7 @@ import CustomInput from "../../components/CustomInput";
 import ButtonPrimery from "../../components/ButtonPrimery";
 import Login from "../login/Login";
 import defaultStyles from "../../../config/styles";
-const SignUpScreen = () => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordRepeat, setPasswordRepeat] = useState("");
-  const [number, setNumber] = useState("");
-
+const ConfirmEmailScreen = () => {
   const onSignUpPressed = () => {
     console.warn("onSignUpPressed");
   };
@@ -101,4 +95,4 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 });
-export default SignUpScreen;
+export default ConfirmEmailScreen;

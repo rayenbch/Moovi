@@ -8,14 +8,12 @@
 
 import React from "react";
 import { SafeAreaView, StatusBar, StyleSheet } from "react-native";
-import Home from "./src/screens/home/Home";
-import Login from "./src/screens/login/Login";
-import SignUpScreen from "./src/screens/SignUpScreen/SignUpScreen";
+import Navigation from "./src/navigation/index";
 const App = () => {
   return (
     <SafeAreaView style={styles.root}>
       <StatusBar barStyle="dark-content" />
-      <Login />
+      <Navigation />
     </SafeAreaView>
   );
 };
