@@ -8,7 +8,7 @@
 
 import React from "react";
 import { SafeAreaView, StatusBar, StyleSheet } from "react-native";
-import Navigation from "./src/navigation/index";
+import Navigation from "./src/navigation/Navigation";
 const App = () => {
   return (
     <SafeAreaView style={styles.root}>
