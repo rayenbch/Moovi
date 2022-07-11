@@ -10,7 +10,7 @@ import {
 import CustomInput from "../../components/CustomInput";
 import ButtonPrimery from "../../components/ButtonPrimery";
 import Login from "../login/Login";
-import defaultStyles from "../../../config/styles";
+import defaultStyles from "../../config/styles";
 const SignUpScreen = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");

@@ -13,7 +13,9 @@ import com.moovi.newarchitecture.MainApplicationReactNativeHost;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
+
 public class MainApplication extends Application implements ReactApplication {
+  
 
   private final ReactNativeHost mReactNativeHost =
       new ReactNativeHost(this) {
@@ -21,6 +23,7 @@ public class MainApplication extends Application implements ReactApplication {
         public boolean getUseDeveloperSupport() {
           return BuildConfig.DEBUG;
         }
+        
 
         @Override
         protected List<ReactPackage> getPackages() {
@@ -36,6 +39,7 @@ public class MainApplication extends Application implements ReactApplication {
           return "index";
         }
       };
+      
 
   private final ReactNativeHost mNewArchitectureNativeHost =
       new MainApplicationReactNativeHost(this);
