@@ -116,6 +116,14 @@ const styles = StyleSheet.create({
   container0: {
     flex: 0.3,
     width: "100%",
+    backgroundColor: "#262a34",
+
+    borderColor: defaultStyles.colors.borderColor,
+    borderWidth: 1,
+    borderRadius: 20,
+    placeholderTextColor: defaultStyles.colors.white,
+    paddingHorizontal: 10,
+    marginVertical: 10,
   },
 });
 export default Login;
