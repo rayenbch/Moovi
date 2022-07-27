@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "421088351271",
+    "firebase_url": "https://mooovi-1bbbe-default-rtdb.firebaseio.com",
+    "project_id": "mooovi-1bbbe",
+    "storage_bucket": "mooovi-1bbbe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:421088351271:android:98d48e9d5209be033baa02",
+        "android_client_info": {
+          "package_name": "com.moovi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "421088351271-i30s8r13o1o3usdm67d4pqfn3e2bj9ed.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHvztmkxulVSSch-AyatpF8sCFSCkG0zw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "421088351271-i30s8r13o1o3usdm67d4pqfn3e2bj9ed.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

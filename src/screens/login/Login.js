@@ -12,6 +12,7 @@ import {
 import CustomInput from "../../components/CustomInput";
 import ButtonPrimery from "../../components/ButtonPrimery";
 import defaultStyles from "../../config/styles";
+import Home from "../home/Home";
 import { useNavigation } from "@react-navigation/native";
 
 const Login = () => {

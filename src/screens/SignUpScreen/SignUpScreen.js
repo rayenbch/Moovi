@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   View,
   StyleSheet,
@@ -11,54 +11,61 @@ import CustomInput from "../../components/CustomInput";
 import ButtonPrimery from "../../components/ButtonPrimery";
 import Login from "../login/Login";
 import defaultStyles from "../../config/styles";
+import AuthContext from "../../navigation/AuthProvider";
 const SignUpScreen = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordRepeat, setPasswordRepeat] = useState("");
-  const [number, setNumber] = useState("");
-
+  const { register } = useContext(AuthContext);
   const onSignUpPressed = () => {
     console.warn("onSignUpPressed");
   };
   const SignInPressed = () => {
     console.warn("signInPressed");
+    navigation.navigate("Login");
   };
   return (
     <View style={styles.container}>
-      <Text style={styles.t1}>Create an account</Text>
-      <Text style={styles.t2}>Please sign in to your account</Text>
-      <CustomInput
-        placeholder="Full Name"
-        value={username}
-        setValue={setUsername}
-      />
-      <CustomInput
-        placeholder="Email Address"
-        value={email}
-        setValue={setEmail}
-      />
-      <CustomInput
-        placeholder="Phone Number"
-        value={number}
-        setValue={setNumber}
-      />
+      <View style={styles.headerContainer}>
+        <Text style={styles.t1}>Create an account</Text>
+        <Text style={styles.t2}>Please sign in to your account</Text>
+      </View>
+      <View style={styles.input}>
+        <View style={styles.input1}>
+          <CustomInput
+            placeholder="Full Name"
+            value={username}
+            setValue={setUsername}
+          />
+        </View>
+        <View style={styles.input1}>
+          <CustomInput
+            placeholder="Email Address"
+            value={email}
+            setValue={setEmail}
+          />
+        </View>
 
-      <CustomInput
-        placeholder="Password"
-        value={password}
-        setValue={setPassword}
-        secureTextEntry={true}
-      />
+        <View style={styles.input1}>
+          <CustomInput
+            placeholder="Password"
+            value={password}
+            setValue={setPassword}
+            secureTextEntry={true}
+          />
+        </View>
+        <View style={styles.input1}>
+          <CustomInput
+            placeholder="Repeat Password"
+            value={passwordRepeat}
+            setValue={setPasswordRepeat}
+            secureTextEntry
+          />
+        </View>
+      </View>
 
-      <CustomInput
-        placeholder="Repeat Password"
-        value={passwordRepeat}
-        setValue={setPasswordRepeat}
-        secureTextEntry
-      />
-
-      <ButtonPrimery text="Sign Up" onPress={onSignUpPressed} />
+      <ButtonPrimery text="Sign Up" onPress={() => register(email, password)} />
       <View style={styles.con2}>
         <TouchableOpacity onPress={SignInPressed}>
           <Text style={styles.t1}>
@@ -78,6 +85,18 @@ const styles = StyleSheet.create({
     backgroundColor: defaultStyles.colors.black,
     flex: 1,
   },
+  input: {
+    flex: 0.6,
+    width: "100%",
+    backgroundColor: "#262a34",
+
+    borderColor: defaultStyles.colors.borderColor,
+    borderWidth: 1,
+    borderRadius: 20,
+    placeholderTextColor: defaultStyles.colors.white,
+    paddingHorizontal: 10,
+    marginVertical: 10,
+  },
   t1: {
     color: defaultStyles.colors.white,
     fontSize: 14,
@@ -96,7 +115,10 @@ const styles = StyleSheet.create({
   t3: {
     color: defaultStyles.colors.blue,
   },
-  con1: {},
+  input1: {
+    flex: 0.2,
+  },
+
   con2: {
     alignItems: "center",
   },

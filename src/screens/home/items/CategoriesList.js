@@ -14,22 +14,22 @@ const CategoriesList = ({}) => {
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         <CategoriesButton
           title="Action"
-          containerStyle={{ paddingLeft: 10, paddingRight: 10 }}
+          containerStyle={{ paddingLeft: 20, paddingRight: 20 }}
           IconComponent={() => <LogAction />}
         />
         <CategoriesButton
           title="Famille"
-          containerStyle={{ paddingRight: 10 }}
+          containerStyle={{ paddingRight: 20 }}
           IconComponent={() => <LogFamily />}
         />
         <CategoriesButton
           title="Drama"
-          containerStyle={{ paddingRight: 10 }}
+          containerStyle={{ paddingRight: 20 }}
           IconComponent={() => <LogDrama />}
         />
         <CategoriesButton
           title="Animation"
-          containerStyle={{ paddingRight: 10 }}
+          containerStyle={{ paddingRight: 20 }}
           IconComponent={() => <LogAnimation />}
         />
         <CategoriesButton
@@ -46,6 +46,8 @@ const styles = StyleSheet.create({
     flex: 0.2,
     width: "100%",
     flexDirection: "row",
+    margin: 20,
+    paddingHorizontal: 10,
   },
 });
 

@@ -6,14 +6,21 @@
  * @flow strict-local
  */
 
-import React from "react";
+import React, { useState } from "react";
 import { SafeAreaView, StatusBar, StyleSheet } from "react-native";
+import defaultStyles from "./src/config/styles";
+import Providers from "./src/navigation";
+
 import Navigation from "./src/navigation/Navigation";
+
 const App = () => {
   return (
     <SafeAreaView style={styles.root}>
-      <StatusBar barStyle="dark-content" />
-      <Navigation />
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor={defaultStyles.colors.header_home_color}
+      />
+      <Providers />
     </SafeAreaView>
   );
 };
@@ -21,7 +28,7 @@ const App = () => {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: "dark-white",
+    backgroundColor: defaultStyles.colors.header_home_color,
   },
 });
 

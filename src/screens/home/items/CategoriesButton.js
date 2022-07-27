@@ -31,14 +31,14 @@ const styles = StyleSheet.create({
   mainContainer: {
     justifyContent: "center",
     alignItems: "center",
-    width: 50,
+    width: 40,
 
     borderRadius:
       Math.round(
         Dimensions.get("window").width + Dimensions.get("window").height
       ) / 2,
-    width: Dimensions.get("window").width * 0.17,
-    height: Dimensions.get("window").width * 0.17,
+    width: Dimensions.get("window").width * 0.14,
+    height: Dimensions.get("window").width * 0.14,
     backgroundColor: defaultStyles.colors.red,
     justifyContent: "center",
     alignItems: "center",

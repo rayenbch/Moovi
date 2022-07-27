@@ -10,4 +10,5 @@ export const colors = {
   borderColor: "#393A40",
   background_custom: "#262a34",
   header_home_color: "#373636",
+  color_Button: "#CDCDCC",
 };
