@@ -2,10 +2,11 @@ import React from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import defaultStyles from "../config/styles";
 
-const ButtonPrimery = ({ onPress, text }) => {
+const ButtonPrimery = ({ onPress, text, isLoading }) => {
   return (
     <Pressable onPress={onPress} style={styles.container}>
       <Text style={styles.text}>{text}</Text>
+      {/* {isLoading && Activity indicator} */}
     </Pressable>
   );
 };

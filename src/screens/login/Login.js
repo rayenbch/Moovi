@@ -14,18 +14,23 @@ import ButtonPrimery from "../../components/ButtonPrimery";
 import defaultStyles from "../../config/styles";
 import Home from "../home/Home";
 import { useNavigation } from "@react-navigation/native";
-
+import * as action from "../../store/actions/authActions";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const { height } = useWindowDimensions();
+  const { loginError, isLogging } = useSelector((state) => state.auth);
+
   const navigation = useNavigation();
+  const dispatch = useDispatch();
 
   const onSignInPressed = () => {
     console.warn("Sign in");
 
-    navigation.navigate("Home");
+    // navigation.navigate("Home");
+    dispatch(action.login(username, password));
   };
 
   const onForgotPaaswordPressed = () => {
@@ -35,7 +40,7 @@ const Login = () => {
   const onSignUpPressed = () => {
     console.warn("onSignupPress");
 
-    navigation.navigate("SignUpScreen");
+    navigate("SignUpScreen");
   };
   return (
     <View style={styles.container}>
@@ -63,7 +68,11 @@ const Login = () => {
           </Text>
         </TouchableOpacity>
       </View>
-      <ButtonPrimery text="Sign in" onPress={onSignInPressed} />
+      <ButtonPrimery
+        text="Sign in"
+        onPress={onSignInPressed}
+        isLoading={isLogging}
+      />
 
       <View style={styles.container1}>
         <TouchableOpacity>

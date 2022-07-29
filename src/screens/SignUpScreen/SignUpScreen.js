@@ -11,19 +11,24 @@ import CustomInput from "../../components/CustomInput";
 import ButtonPrimery from "../../components/ButtonPrimery";
 import Login from "../login/Login";
 import defaultStyles from "../../config/styles";
-import AuthContext from "../../navigation/AuthProvider";
+import { register } from "../../store/actions/authActions";
+import { useDispatch } from "react-redux";
+
 const SignUpScreen = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordRepeat, setPasswordRepeat] = useState("");
-  const { register } = useContext(AuthContext);
+
+  const dispatch = useDispatch();
+
   const onSignUpPressed = () => {
     console.warn("onSignUpPressed");
+
+    dispatch(register(username, email, password));
   };
   const SignInPressed = () => {
     console.warn("signInPressed");
-    navigation.navigate("Login");
   };
   return (
     <View style={styles.container}>
@@ -65,7 +70,7 @@ const SignUpScreen = () => {
         </View>
       </View>
 
-      <ButtonPrimery text="Sign Up" onPress={() => register(email, password)} />
+      <ButtonPrimery text="Sign Up" onPress={onSignUpPressed} />
       <View style={styles.con2}>
         <TouchableOpacity onPress={SignInPressed}>
           <Text style={styles.t1}>

@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "../screens/home/Home";
 import Login from "../screens/login/Login";
 import SignUpScreen from "../screens/SignUpScreen/SignUpScreen";
-
+import { forwardRef } from "react";
 const Stack = createNativeStackNavigator();
 
 const Navigation = () => {
@@ -19,4 +19,4 @@ const Navigation = () => {
     </NavigationContainer>
   );
 };
-export default Navigation;
+export default forwardRef(Navigation);

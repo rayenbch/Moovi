@@ -5,7 +5,7 @@ import Home from "../screens/home/Home";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import CustomTabBar from "./CustomTabBar";
-
+import { forwardRef } from "react";
 import defaultStyles from "../config/styles";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 const Tab = createBottomTabNavigator();
@@ -26,7 +26,7 @@ function Favorite() {
   );
 }
 
-const AppNavigation = () => {
+const AppNavigation = (props, ref) => {
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -44,4 +44,4 @@ const AppNavigation = () => {
   );
 };
 
-export default AppNavigation;
+export default forwardRef(AppNavigation);

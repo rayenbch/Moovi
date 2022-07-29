@@ -9,19 +9,22 @@
 import React, { useState } from "react";
 import { SafeAreaView, StatusBar, StyleSheet } from "react-native";
 import defaultStyles from "./src/config/styles";
-import Providers from "./src/navigation";
-
+import { configStore } from "./src/store/configStore";
+import { Provider } from "react-redux";
 import Navigation from "./src/navigation/Navigation";
+import { navigationRef } from "./src/navigation/NavigationActions";
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.root}>
-      <StatusBar
-        barStyle="light-content"
-        backgroundColor={defaultStyles.colors.header_home_color}
-      />
-      <Providers />
-    </SafeAreaView>
+    <Provider store={configStore}>
+      <SafeAreaView style={styles.root}>
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor={defaultStyles.colors.header_home_color}
+        />
+        <Navigation ref={navigationRef} />
+      </SafeAreaView>
+    </Provider>
   );
 };
 
