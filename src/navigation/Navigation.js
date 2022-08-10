@@ -8,9 +8,9 @@ import SignUpScreen from "../screens/SignUpScreen/SignUpScreen";
 import { forwardRef } from "react";
 const Stack = createNativeStackNavigator();
 
-const Navigation = () => {
+const Navigation = (props, ref) => {
   return (
-    <NavigationContainer>
+    <NavigationContainer ref={ref}>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="SignIn" component={Login} />
         <Stack.Screen name="SignUpScreen" component={SignUpScreen} />

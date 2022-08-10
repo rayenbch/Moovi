@@ -27,7 +27,7 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const onSignInPressed = () => {
-    console.warn("Sign in");
+    //console.warn("Sign in");donner un message
 
     // navigation.navigate("Home");
     dispatch(action.login(username, password));
@@ -38,9 +38,9 @@ const Login = () => {
   };
 
   const onSignUpPressed = () => {
-    console.warn("onSignupPress");
+    //console.warn("onSignupPress");
 
-    navigate("SignUpScreen");
+    navigation.navigate("SignUpScreen");
   };
   return (
     <View style={styles.container}>

@@ -23,9 +23,7 @@ const SignUpScreen = () => {
   const dispatch = useDispatch();
 
   const onSignUpPressed = () => {
-    console.warn("onSignUpPressed");
-
-    dispatch(register(username, email, password));
+    dispatch(register(email, username, password));
   };
   const SignInPressed = () => {
     console.warn("signInPressed");
