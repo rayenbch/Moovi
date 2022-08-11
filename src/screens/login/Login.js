@@ -18,7 +18,7 @@ import * as action from "../../store/actions/authActions";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 const Login = () => {
-  const [username, setUsername] = useState("");
+  const [email, setemail] = useState("");
   const [password, setPassword] = useState("");
 
   const { loginError, isLogging } = useSelector((state) => state.auth);
@@ -29,8 +29,8 @@ const Login = () => {
   const onSignInPressed = () => {
     //console.warn("Sign in");donner un message
 
-    // navigation.navigate("Home");
-    dispatch(action.login(username, password));
+    //navigation.navigate(" AppNavigation");
+    dispatch(action.login(email, password));
   };
 
   const onForgotPaaswordPressed = () => {
@@ -49,11 +49,7 @@ const Login = () => {
         <Text style={styles.text2}>Please sign in to your account</Text>
       </View>
       <View style={styles.container0}>
-        <CustomInput
-          placeholder="Username"
-          value={username}
-          setValue={setUsername}
-        />
+        <CustomInput placeholder="email" value={email} setValue={setemail} />
         <CustomInput
           placeholder="Password"
           value={password}

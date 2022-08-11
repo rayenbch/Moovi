@@ -15,18 +15,20 @@ import { register } from "../../store/actions/authActions";
 import { useDispatch } from "react-redux";
 
 const SignUpScreen = () => {
-  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordRepeat, setPasswordRepeat] = useState("");
 
   const dispatch = useDispatch();
 
   const onSignUpPressed = () => {
-    dispatch(register(email, username, password));
+    dispatch(register(email, password));
   };
   const SignInPressed = () => {
     console.warn("signInPressed");
+
+    navigation.navigate("Login");
   };
   return (
     <View style={styles.container}>
@@ -37,19 +39,18 @@ const SignUpScreen = () => {
       <View style={styles.input}>
         <View style={styles.input1}>
           <CustomInput
-            placeholder="Full Name"
-            value={username}
-            setValue={setUsername}
-          />
-        </View>
-        <View style={styles.input1}>
-          <CustomInput
             placeholder="Email Address"
             value={email}
             setValue={setEmail}
           />
         </View>
-
+        <View style={styles.input1}>
+          <CustomInput
+            placeholder="Full Name"
+            value={username}
+            setValue={setUsername}
+          />
+        </View>
         <View style={styles.input1}>
           <CustomInput
             placeholder="Password"

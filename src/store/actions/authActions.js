@@ -1,28 +1,33 @@
 import * as types from "../types";
 import auth from "@react-native-firebase/auth";
 import AsyncStorage from "@react-native-community/async-storage";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import Home from "../../screens/home/Home";
+import AppNavigation from "../../navigation/AppNavigation";
 import { navigate } from "../../navigation/NavigationActions";
-
+import * as Animatable from "react-native-animatable";
+import { View, Text } from "react-native";
 export const login = (email, password) => (dispatch) => {
   try {
     dispatch({ type: types.LOGIN_REQUEST });
     // Firebase authentication actions
 
     auth()
-      .signInWithEmailAndPassword(username, email, password)
+      .signInWithEmailAndPassword(email, password)
+
       .then(() => {
-        console.log("User signed in anonymously");
+        console.log("User signed ");
+        dispatch({ type: types.LOGIN_SUCCESS });
+
         navigate("Home");
       })
       .catch((error) => {
         if (error.code === "auth/operation-not-allowed") {
           console.log("Enable anonymous in your firebase console.");
         }
+        alert("User not signed ,error in email or password");
 
         console.error(error);
       });
+
     // Persist token in Async storage
 
     _retrieveData = async () => {
@@ -41,22 +46,18 @@ export const login = (email, password) => (dispatch) => {
         // Error retrieving data
       }
     };
-
-    dispatch({ type: types.LOGIN_SUCCESS });
-    //Navigate to Home page
-    navigate("Home");
   } catch (error) {
     console.log("Error handling login action", error);
     dispatch({ type: types.LOGIN_FAILURE, loginError: error });
   }
 };
 
-export const register = (username, email, password) => (dispatch) => {
+export const register = (email, password) => (dispatch) => {
   try {
     dispatch({ type: types.REGISTER_REQUEST });
     // Firebase register actions
     auth()
-      .createUserWithEmailAndPassword(username, email, password)
+      .createUserWithEmailAndPassword(email, password)
       .then(() => {
         console.log("User account created & signed in!");
         dispatch({ type: types.REGSITER_SUCCESS });
@@ -66,12 +67,14 @@ export const register = (username, email, password) => (dispatch) => {
       .catch((error) => {
         if (error.code === "auth/email-already-in-use") {
           console.log("That email address is already in use!");
+          alert("That email address is already in use!");
         }
 
         if (error.code === "auth/invalid-email") {
           console.log("That email address is invalid!");
+          alert("That email address is invalid!");
         }
-
+        alert("colonne is empty!");
         console.error(error);
       });
   } catch (error) {

@@ -6,6 +6,8 @@ import Home from "../screens/home/Home";
 import Login from "../screens/login/Login";
 import SignUpScreen from "../screens/SignUpScreen/SignUpScreen";
 import { forwardRef } from "react";
+import AppNavigation from "./AppNavigation";
+
 const Stack = createNativeStackNavigator();
 
 const Navigation = (props, ref) => {
@@ -15,6 +17,7 @@ const Navigation = (props, ref) => {
         <Stack.Screen name="SignIn" component={Login} />
         <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
         <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="AppNavigation" component={AppNavigation} />
       </Stack.Navigator>
     </NavigationContainer>
   );
