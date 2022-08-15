@@ -1,4 +1,4 @@
-import React, { useState, Component } from "react";
+import React, { useEffect } from "react";
 import {
   View,
   Text,
@@ -8,8 +8,8 @@ import {
   FlatList,
 } from "react-native";
 import defaultStyles from "../../../config/styles";
-import { useSelector } from "react-redux/es/exports";
-import { useDispatch } from "react-redux/es/exports";
+import { useSelector, useDispatch } from "react-redux";
+import * as action from "../../../store/actions/moviActions";
 const RecommandedMoviesList = () => {
   const { movies } = useSelector((state) => state.movies);
 
@@ -45,7 +45,7 @@ const RecommandedMoviesList = () => {
           vertical={true}
           numColumns={2}
           showsVerticalScrollIndicator={false}
-          movies
+          data={movies}
           keyExtractor={(item) => item.id.toString()}
           renderItem={renderItem}
         />
