@@ -8,8 +8,16 @@ import {
   FlatList,
 } from "react-native";
 import defaultStyles from "../../../config/styles";
-
+import { useSelector } from "react-redux/es/exports";
+import { useDispatch } from "react-redux/es/exports";
 const RecommandedMoviesList = () => {
+  const { movies } = useSelector((state) => state.movies);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(action.getRecommendedMovies());
+  }, []);
   const data = [
     {
       id: 1,
@@ -37,7 +45,7 @@ const RecommandedMoviesList = () => {
           vertical={true}
           numColumns={2}
           showsVerticalScrollIndicator={false}
-          data={data}
+          movies
           keyExtractor={(item) => item.id.toString()}
           renderItem={renderItem}
         />

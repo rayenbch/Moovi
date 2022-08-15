@@ -28,7 +28,7 @@ const SignUpScreen = () => {
   const SignInPressed = () => {
     console.warn("signInPressed");
 
-    navigation.navigate("Login");
+    navigate("Login");
   };
   return (
     <View style={styles.container}>
