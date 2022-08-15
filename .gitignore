@@ -1,4 +1,6 @@
 # OSX
+
+constants.js
 #
 .DS_Store
 .env
@@ -62,3 +64,5 @@ buck-out/
 # Ruby / CocoaPods
 /ios/Pods/
 /vendor/bundle/
+
+

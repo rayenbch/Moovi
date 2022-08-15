@@ -17,7 +17,7 @@ export const login = (email, password) => (dispatch) => {
         console.log("User signed ");
         dispatch({ type: types.LOGIN_SUCCESS });
 
-        navigate("Home");
+        navigate("AppNavigation");
       })
       .catch((error) => {
         if (error.code === "auth/operation-not-allowed") {
@@ -62,7 +62,7 @@ export const register = (email, password) => (dispatch) => {
         console.log("User account created & signed in!");
         dispatch({ type: types.REGSITER_SUCCESS });
         //Navigate to login page
-        navigate("Home");
+        navigate("AppNavigation");
       })
       .catch((error) => {
         if (error.code === "auth/email-already-in-use") {

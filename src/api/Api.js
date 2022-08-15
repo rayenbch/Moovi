@@ -1,6 +1,6 @@
 import axios from "axios";
 import AsyncStorage from "@react-native-community/async-storage";
-import { API_KEY } from "@env";
+import { API_KEY } from "../../constants";
 
 const Api = () => {
   const api = axios.create({
