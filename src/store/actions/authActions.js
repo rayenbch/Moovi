@@ -9,43 +9,41 @@ export const login = (email, password) => (dispatch) => {
   try {
     dispatch({ type: types.LOGIN_REQUEST });
     // Firebase authentication actions
-
+    console.log("Login Request");
     auth()
       .signInWithEmailAndPassword(email, password)
-
       .then(() => {
         console.log("User signed ");
         dispatch({ type: types.LOGIN_SUCCESS });
 
-        navigate("AppNavigation");
+        navigate("Root", { screen: "Home" });
       })
       .catch((error) => {
+        console.error(error);
         if (error.code === "auth/operation-not-allowed") {
           console.log("Enable anonymous in your firebase console.");
         }
         alert("User not signed ,error in email or password");
-
-        console.error(error);
       });
 
     // Persist token in Async storage
 
-    _retrieveData = async () => {
-      try {
-        const value = await AsyncStorage.getItem("TASKS");
-        if (value !== null) {
-          // We have data!!
-          console.log(value);
-        }
+    // _retrieveData = async () => {
+    //   try {
+    //     const value = await AsyncStorage.getItem("TASKS");
+    //     if (value !== null) {
+    //       // We have data!!
+    //       console.log(value);
+    //     }
 
-        dispatch({
-          type: "LOGIN",
-          payload: token,
-        });
-      } catch (error) {
-        // Error retrieving data
-      }
-    };
+    //     dispatch({
+    //       type: "LOGIN",
+    //       payload: token,
+    //     });
+    //   } catch (error) {
+    //     // Error retrieving data
+    //   }
+    // };
   } catch (error) {
     console.log("Error handling login action", error);
     dispatch({ type: types.LOGIN_FAILURE, loginError: error });
@@ -56,13 +54,14 @@ export const register = (email, password) => (dispatch) => {
   try {
     dispatch({ type: types.REGISTER_REQUEST });
     // Firebase register actions
+
     auth()
       .createUserWithEmailAndPassword(email, password)
       .then(() => {
         console.log("User account created & signed in!");
         dispatch({ type: types.REGSITER_SUCCESS });
         //Navigate to login page
-        navigate("AppNavigation");
+        navigate("Root", { screen: "Home" });
       })
       .catch((error) => {
         if (error.code === "auth/email-already-in-use") {

@@ -8,16 +8,37 @@ import SignUpScreen from "../screens/SignUpScreen/SignUpScreen";
 import { forwardRef } from "react";
 import AppNavigation from "./AppNavigation";
 
-const Stack = createNativeStackNavigator();
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import CustomTabBar from "./CustomTabBar";
 
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+
+const TabNavigation = () => {
+  return (
+    <Tab.Navigator
+      tabBar={(props) => <CustomTabBar {...props} />}
+      screenOptions={{
+        headerShown: false,
+        tabBarShowLabel: false,
+      }}
+    >
+      <Tab.Screen name="Home" component={Home} />
+
+      <Tab.Screen name="Favorite" component={Home} />
+    </Tab.Navigator>
+  );
+};
 const Navigation = (props, ref) => {
   return (
     <NavigationContainer ref={ref}>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Navigator
+        screenOptions={{ headerShown: false }}
+        initialRouteName="Root"
+      >
         <Stack.Screen name="SignIn" component={Login} />
         <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="AppNavigation" component={AppNavigation} />
+        <Stack.Screen name="Root" component={TabNavigation} />
       </Stack.Navigator>
     </NavigationContainer>
   );
