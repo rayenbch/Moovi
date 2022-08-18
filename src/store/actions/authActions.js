@@ -1,10 +1,10 @@
 import * as types from "../types";
 import auth from "@react-native-firebase/auth";
 import AsyncStorage from "@react-native-community/async-storage";
-import AppNavigation from "../../navigation/AppNavigation";
+
 import { navigate } from "../../navigation/NavigationActions";
 import * as Animatable from "react-native-animatable";
-import { View, Text } from "react-native";
+
 export const login = (email, password) => (dispatch) => {
   try {
     dispatch({ type: types.LOGIN_REQUEST });
@@ -28,22 +28,22 @@ export const login = (email, password) => (dispatch) => {
 
     // Persist token in Async storage
 
-    // _retrieveData = async () => {
-    //   try {
-    //     const value = await AsyncStorage.getItem("TASKS");
-    //     if (value !== null) {
-    //       // We have data!!
-    //       console.log(value);
-    //     }
+    /* _retrieveData = async () => {
+      try {
+        const value = await AsyncStorage.getItem("TASKS");
+        if (value !== null) {
+          // We have data!!
+          console.log(value);
+        }
 
-    //     dispatch({
-    //       type: "LOGIN",
-    //       payload: token,
-    //     });
-    //   } catch (error) {
-    //     // Error retrieving data
-    //   }
-    // };
+        dispatch({
+          type: "LOGIN",
+          payload: token,
+        });
+      } catch (error) {
+        // Error retrieving data
+      }
+    };*/
   } catch (error) {
     console.log("Error handling login action", error);
     dispatch({ type: types.LOGIN_FAILURE, loginError: error });

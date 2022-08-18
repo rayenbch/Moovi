@@ -6,6 +6,7 @@ import IconHeartOutline from "../assets/svg/icon-heart.svg";
 import IconHeartFilled from "../assets/svg/icon-heart-on.svg";
 import TabBarButton from "./TabBarButton";
 import defaultStyles from "../config/styles";
+import Favorite from "../screens/favorite/Favorite";
 
 const CustomTabBar = ({ state, navigation }) => {
   console.log("State", state.index);

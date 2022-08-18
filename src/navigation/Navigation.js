@@ -6,10 +6,10 @@ import Home from "../screens/home/Home";
 import Login from "../screens/login/Login";
 import SignUpScreen from "../screens/SignUpScreen/SignUpScreen";
 import { forwardRef } from "react";
-import AppNavigation from "./AppNavigation";
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import CustomTabBar from "./CustomTabBar";
+import Favorite from "../screens/favorite/Favorite";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -23,9 +23,9 @@ const TabNavigation = () => {
         tabBarShowLabel: false,
       }}
     >
-      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="home" component={Home} />
 
-      <Tab.Screen name="Favorite" component={Home} />
+      <Tab.Screen name="favorite" component={Favorite} />
     </Tab.Navigator>
   );
 };

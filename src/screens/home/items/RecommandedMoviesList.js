@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Image,
   FlatList,
+  ActivityIndicator,
 } from "react-native";
 import defaultStyles from "../../../config/styles";
 import { useSelector, useDispatch } from "react-redux";
@@ -13,6 +14,7 @@ import * as action from "../../../store/actions/moviActions";
 
 const RecommandedMoviesList = () => {
   const { movies } = useSelector((state) => state.movies);
+  const [isLoadingImg, setIsLoadingImg] = useState(true);
 
   const dispatch = useDispatch();
 
@@ -22,10 +24,19 @@ const RecommandedMoviesList = () => {
 
   const renderItem = ({ item }) => {
     const pictureUri = `https://image.tmdb.org/t/p/original${item.poster_path}`;
-    console.log("picture");
+    console.log(pictureUri);
     return (
       <TouchableOpacity>
-        <Image style={styles.styleFilm} source={{ uri: pictureUri }} />
+        <Image
+          style={styles.styleFilm}
+          source={{ uri: pictureUri }}
+          onLoadEnd={() => setIsLoadingImg(false)}
+        />
+        {isLoadingImg && (
+          <View style={styles.imageLoader}>
+            <ActivityIndicator size="large" color={defaultStyles.colors.red} />
+          </View>
+        )}
       </TouchableOpacity>
     );
   };
