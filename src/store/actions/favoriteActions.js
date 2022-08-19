@@ -8,11 +8,9 @@ export const toggleFavoriteFilm = (id) => (dispatch, getState) => {
   let newFavoriteMoviesArr = [...favoriteMovies];
   const isLiked = favoriteMovies.includes(id);
   if (isLiked) {
-    newFavoriteMoviesArr = newFavoriteMoviesArr.filter(
-      (item) => item.id !== id
-    );
+    newFavoriteMoviesArr = newFavoriteMoviesArr.filter((item) => item !== id);
   } else {
-    newFavoriteMoviesArr = newFavoriteMoviesArr.push(id);
+    newFavoriteMoviesArr.push(id);
   }
 
   console.log("newFavoriteMoviesArr", newFavoriteMoviesArr);

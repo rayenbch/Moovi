@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     borderColor: defaultStyles.colors.borderColor,
     borderWidth: 1,
     borderRadius: 40,
-    placeholderTextColor: defaultStyles.colors.white,
+    placeholderTextColor: defaultStyles.colors.header_home_color,
     paddingHorizontal: 10,
     marginVertical: 10,
     flexDirection: "row",

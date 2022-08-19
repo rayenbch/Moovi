@@ -24,8 +24,6 @@ const CustomInput = ({ value, setValue, placeholder, secureTextEntry }) => {
 
 const styles = StyleSheet.create({
   container: {},
-  input: {
-    color: defaultStyles.colors.white,
-  },
+  input: {},
 });
 export default CustomInput;

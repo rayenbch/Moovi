@@ -46,9 +46,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    maxHeight: 90,
-    height: 70,
-    paddingVertical: 10,
+    alignContent: "center",
+    maxHeight: 60,
+    paddingTop: 40,
+    paddingVertical: 20,
   },
   btnContainer: {
     flex: 0.5,
