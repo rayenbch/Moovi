@@ -7,13 +7,20 @@ import {
   Image,
   FlatList,
   ActivityIndicator,
+  ImageBackground,
 } from "react-native";
 import defaultStyles from "../../../config/styles";
 import { useSelector, useDispatch } from "react-redux";
 import * as action from "../../../store/actions/moviActions";
+import * as favoriteMoviesAction from "../../../store/actions/favoriteActions";
+import IconHeart from "../../../assets/svg/icon-heart.svg";
+import IconHeartRed from "../../../assets/svg/icon-heart-on-red.svg";
 
+function pressedlike() {
+  this.setState({ liked: !this.state.liked });
+}
 const RecommandedMoviesList = () => {
-  const { movies } = useSelector((state) => state.movies);
+  const { movies, favoriteMovies } = useSelector((state) => state.movies);
   const [isLoadingImg, setIsLoadingImg] = useState(true);
 
   const dispatch = useDispatch();
@@ -25,13 +32,29 @@ const RecommandedMoviesList = () => {
   const renderItem = ({ item }) => {
     const pictureUri = `https://image.tmdb.org/t/p/original${item.poster_path}`;
     console.log(pictureUri);
+
     return (
       <TouchableOpacity>
-        <Image
+        <ImageBackground
           style={styles.styleFilm}
           source={{ uri: pictureUri }}
           onLoadEnd={() => setIsLoadingImg(false)}
-        />
+        >
+          <View style={styles.IconHeart}>
+            <TouchableOpacity
+              onPress={() =>
+                dispatch(favoriteMoviesAction.toggleFavoriteFilm(item.id))
+              }
+            >
+              {favoriteMovies.includes(item.id) ? (
+                <IconHeartRed />
+              ) : (
+                <IconHeart />
+              )}
+            </TouchableOpacity>
+          </View>
+        </ImageBackground>
+
         {isLoadingImg && (
           <View style={styles.imageLoader}>
             <ActivityIndicator size="large" color={defaultStyles.colors.red} />
@@ -88,6 +111,9 @@ const styles = StyleSheet.create({
     width: 180,
     height: 250,
     margin: 10,
+  },
+  IconHeart: {
+    paddingLeft: 160,
   },
 });
 

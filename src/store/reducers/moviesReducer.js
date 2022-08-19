@@ -27,6 +27,12 @@ export default (state = INITIAL_STATE, action) => {
         isLoadingMovies: false,
       };
 
+    case types.GET_FAVORITE_MOVIES:
+      return {
+        ...state,
+        favoriteMovies: action.payload,
+      };
+
     default:
       return state;
   }
