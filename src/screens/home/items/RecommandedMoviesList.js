@@ -4,7 +4,6 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  Image,
   FlatList,
   ActivityIndicator,
   ImageBackground,
@@ -16,9 +15,6 @@ import * as favoriteMoviesAction from "../../../store/actions/favoriteActions";
 import IconHeart from "../../../assets/svg/icon-heart.svg";
 import IconHeartRed from "../../../assets/svg/icon-heart-on-red.svg";
 
-function pressedlike() {
-  this.setState({ liked: !this.state.liked });
-}
 const RecommandedMoviesList = () => {
   const { movies, favoriteMovies } = useSelector((state) => state.movies);
   const [isLoadingImg, setIsLoadingImg] = useState(true);
@@ -40,19 +36,7 @@ const RecommandedMoviesList = () => {
           source={{ uri: pictureUri }}
           onLoadEnd={() => setIsLoadingImg(false)}
         >
-          <View style={styles.IconHeart}>
-            <TouchableOpacity
-              onPress={() =>
-                dispatch(favoriteMoviesAction.toggleFavoriteFilm(item.id))
-              }
-            >
-              {favoriteMovies.includes(item.id) ? (
-                <IconHeartRed />
-              ) : (
-                <IconHeart />
-              )}
-            </TouchableOpacity>
-          </View>
+          <AddFavorite />
         </ImageBackground>
 
         {isLoadingImg && (
@@ -62,6 +46,17 @@ const RecommandedMoviesList = () => {
         )}
       </TouchableOpacity>
     );
+  };
+  const AddFavorite = () => {
+    <View style={styles.IconHeart}>
+      <TouchableOpacity
+        onPress={() =>
+          dispatch(favoriteMoviesAction.toggleFavoriteFilm(item.id))
+        }
+      >
+        {favoriteMovies.includes(item.id) ? <IconHeartRed /> : <IconHeart />}
+      </TouchableOpacity>
+    </View>;
   };
 
   return (
