@@ -1,16 +1,19 @@
 import * as types from "../types";
 import Api from "../../api/Api";
 
-export const toggleFavoriteFilm = (id) => (dispatch, getState) => {
-  console.log("initial State", id);
+export const toggleFavoriteFilm = (movie) => (dispatch, getState) => {
+  console.log("initial State", movie);
   const { favoriteMovies } = getState().movies;
 
   let newFavoriteMoviesArr = [...favoriteMovies];
-  const isLiked = favoriteMovies.includes(id);
+  const isLiked =
+    favoriteMovies.findIndex((item) => item.id === movie.id) !== -1;
   if (isLiked) {
-    newFavoriteMoviesArr = newFavoriteMoviesArr.filter((item) => item !== id);
+    newFavoriteMoviesArr = newFavoriteMoviesArr.filter(
+      (item) => item.id !== movie.id
+    );
   } else {
-    newFavoriteMoviesArr.push(id);
+    newFavoriteMoviesArr.push(movie);
   }
 
   console.log("newFavoriteMoviesArr", newFavoriteMoviesArr);

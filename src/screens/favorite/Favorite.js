@@ -5,20 +5,23 @@ import {
   StyleSheet,
   FlatList,
   ActivityIndicator,
+  TouchableOpacity,
+  ImageBackground,
 } from "react-native";
 import defaultStyles from "../../config/styles";
 import * as action from "../../store/actions/favoriteActions";
 import * as favoriteMoviesAction from "../../store/actions/favoriteActions";
 import { useSelector, useDispatch } from "react-redux";
 
+import IconHeart from "../../assets/svg/icon-heart.svg";
+import IconHeartRed from "../../assets/svg/icon-heart-on-red.svg";
+
 const Favorite = () => {
   const { favoriteMovies } = useSelector((state) => state.movies);
   const [isLoadingImg, setIsLoadingImg] = useState(true);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(action.toggleFavoriteFilm());
-  }, []);
-  const renderItem = () => {
+
+  const renderItem = (item) => {
     const pictureUri = `https://image.tmdb.org/t/p/original${item.poster_path}`;
     console.log(pictureUri);
     console.log("FavoriteMovies", favoriteMovies);
@@ -29,7 +32,7 @@ const Favorite = () => {
           source={{ uri: pictureUri }}
           onLoadEnd={() => setIsLoadingImg(false)}
         >
-          <AddFavorite />
+          <AddFavorite item={item} />
         </ImageBackground>
 
         {isLoadingImg && (
@@ -41,6 +44,23 @@ const Favorite = () => {
     );
   };
 
+  const AddFavorite = ({ item }) => {
+    return (
+      <View style={styles.IconHeart}>
+        <TouchableOpacity
+          onPress={() =>
+            dispatch(favoriteMoviesAction.toggleFavoriteFilm(item))
+          }
+        >
+          {favoriteMovies && favoriteMovies?.findIndex((el) => el.id) !== -1 ? (
+            <IconHeartRed />
+          ) : (
+            <IconHeart />
+          )}
+        </TouchableOpacity>
+      </View>
+    );
+  };
   return (
     <View style={styles.ContainerFilmFavorite}>
       <FlatList
@@ -50,24 +70,31 @@ const Favorite = () => {
         keyExtractor={(item) => item.id.toString()}
         renderItem={renderItem}
       />
-      {isLoadingImg && (
-        <View style={styles.imageLoader}>
-          <ActivityIndicator size="large" color={defaultStyles.colors.red} />
-        </View>
-      )}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   containerStyle: {
-    backgroundColor: defaultStyles.colors.black1,
     flex: 1,
   },
   textStyle: {
     backgroundColor: defaultStyles.colors.white,
   },
-  ContainerFilmFavorite: { flexDirection: "row" },
+  ContainerFilmFavorite: {
+    flex: 1,
+    backgroundColor: defaultStyles.colors.black,
+
+    flexDirection: "row",
+  },
+  styleFilm: {
+    width: 180,
+    height: 250,
+    margin: 10,
+  },
+  IconHeart: {
+    paddingLeft: 160,
+  },
 });
 
 export default Favorite;

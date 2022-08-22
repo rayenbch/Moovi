@@ -36,7 +36,7 @@ const RecommandedMoviesList = () => {
           source={{ uri: pictureUri }}
           onLoadEnd={() => setIsLoadingImg(false)}
         >
-          <AddFavorite />
+          <AddFavorite item={item} />
         </ImageBackground>
 
         {isLoadingImg && (
@@ -47,16 +47,24 @@ const RecommandedMoviesList = () => {
       </TouchableOpacity>
     );
   };
-  const AddFavorite = () => {
-    <View style={styles.IconHeart}>
-      <TouchableOpacity
-        onPress={() =>
-          dispatch(favoriteMoviesAction.toggleFavoriteFilm(item.id))
-        }
-      >
-        {favoriteMovies.includes(item.id) ? <IconHeartRed /> : <IconHeart />}
-      </TouchableOpacity>
-    </View>;
+
+  const AddFavorite = ({ item }) => {
+    return (
+      <View style={styles.IconHeart}>
+        <TouchableOpacity
+          onPress={() =>
+            dispatch(favoriteMoviesAction.toggleFavoriteFilm(item))
+          }
+        >
+          {favoriteMovies &&
+          favoriteMovies?.findIndex((el) => el.id === item.id) !== -1 ? (
+            <IconHeartRed />
+          ) : (
+            <IconHeart />
+          )}
+        </TouchableOpacity>
+      </View>
+    );
   };
 
   return (
