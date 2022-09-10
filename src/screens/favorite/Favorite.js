@@ -15,6 +15,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import IconHeart from "../../assets/svg/icon-heart.svg";
 import IconHeartRed from "../../assets/svg/icon-heart-on-red.svg";
+import FavorisHeader from "./FavorisHeader";
 
 const Favorite = () => {
   const { favoriteMovies } = useSelector((state) => state.movies);
@@ -62,29 +63,30 @@ const Favorite = () => {
     );
   };
   return (
-    <View style={styles.ContainerFilmFavorite}>
-      <FlatList
-        numColumns={2}
-        showsVerticalScrollIndicator={false}
-        data={favoriteMovies}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={renderItem}
-      />
+    <View style={styles.ContainerHeader}>
+      <FavorisHeader />
+      <View style={styles.ContainerFilmFavorite}>
+        <FlatList
+          numColumns={2}
+          showsVerticalScrollIndicator={false}
+          data={favoriteMovies}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={renderItem}
+        />
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  containerStyle: {
+  ContainerHeader: {
+    alignContent: "center",
+
     flex: 1,
-  },
-  textStyle: {
-    backgroundColor: defaultStyles.colors.white,
   },
   ContainerFilmFavorite: {
     flex: 1,
     backgroundColor: defaultStyles.colors.black,
-
     flexDirection: "row",
   },
   styleFilm: {

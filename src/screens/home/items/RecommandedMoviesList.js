@@ -105,6 +105,7 @@ const styles = StyleSheet.create({
   TextList: {
     color: defaultStyles.colors.white,
     fontSize: 14,
+    flexDirection: "row",
   },
   ContainerFilm: {
     flexDirection: "row",

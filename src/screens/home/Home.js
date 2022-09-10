@@ -20,6 +20,7 @@ const Home = () => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: defaultStyles.colors.black1,
+
     flex: 1,
   },
 });

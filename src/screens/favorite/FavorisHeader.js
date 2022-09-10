@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { View, StyleSheet, TouchableOpacity } from "react-native";
+import React from "react";
+import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
 import defaultStyles from "../../config/styles";
 
 const FavorisHeader = () => {
@@ -15,15 +15,15 @@ const FavorisHeader = () => {
 const styles = StyleSheet.create({
   header: {
     backgroundColor: defaultStyles.colors.header_home_color,
-    flex: 0.15,
-    flexDirection: "row",
+    flex: 0.1,
     alignItems: "center",
-    alignContent: "center",
-
-    paddingHorizontal: 20,
+    paddingTop: 40,
   },
   textHeader: {
     color: defaultStyles.colors.white,
+    fontSize: 25,
+    alignContent: "center",
+    alignItems: "center",
   },
 });
 
